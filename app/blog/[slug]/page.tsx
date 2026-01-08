@@ -1,4 +1,14 @@
 /**
+ * Generate static params for blog post pages
+ * Returns empty array for now - update when you have actual blog posts
+ */
+export function generateStaticParams() {
+  // Return empty array for now - update with actual blog post slugs when available
+  // Example: return [{ slug: 'my-first-post' }, { slug: 'another-post' }]
+  return [];
+}
+
+/**
  * Individual blog post page component
  * Displays full blog post content
  */

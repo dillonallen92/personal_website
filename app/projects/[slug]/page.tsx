@@ -1,6 +1,16 @@
 import Link from "next/link";
 
 /**
+ * Generate static params for project pages
+ * Returns empty array for now - update when you have actual projects
+ */
+export function generateStaticParams() {
+  // Return empty array for now - update with actual project slugs when available
+  // Example: return [{ slug: 'project-1' }, { slug: 'project-2' }]
+  return [];
+}
+
+/**
  * Individual project detail page component
  * Displays full project information
  */
