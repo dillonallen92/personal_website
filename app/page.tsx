@@ -12,7 +12,7 @@ export default function Home() {
         {/* Headshot */}
         <div className="mb-8">
           <Image
-            src="public/images/headshot.jpg"
+            src="/images/headshot.jpg"
             alt="Professional headshot"
             width={200}
             height={200}
@@ -40,16 +40,16 @@ export default function Home() {
         {/* CTA Buttons */}
         <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link
-            href="/projects"
+            href="/courses"
             className="rounded-md bg-accentBlue px-6 py-3 text-base font-medium text-white hover:bg-blue-600 transition-colors"
           >
-            View Projects
+            View Courses
           </Link>
           <Link
-            href="/courses"
+            href="/projects"
             className="rounded-md border-2 border-accentBlue px-6 py-3 text-base font-medium text-accentBlue hover:bg-accentBlue hover:text-white transition-colors"
           >
-            View Courses
+            View Projects
           </Link>
         </div>
 
