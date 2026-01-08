@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --charcoal: #1f2933;
+  --off-white: #f9fafb;
+  --accent-blue: #3b82f6;
+  --accent-slate: #64748b;
+}
+
+body {
+  color: var(--charcoal);
+  background: var(--off-white);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
