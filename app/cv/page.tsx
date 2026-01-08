@@ -1,84 +1,143 @@
+import { PageContainer } from "@/components/ui/PageContainer";
+import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import { SkillTag } from "@/components/ui/SkillTag";
+import { CVEntry } from "@/components/domain/CVEntry";
+
+type CVSection = {
+  title: string;
+  entries: Array<{
+    title: string;
+    subtitle: string;
+    description?: string;
+    dateRange?: string;
+  }>;
+};
+
+type CVSkills = {
+  skills: string[];
+};
+
+const cvEducation: CVSection = {
+  title: "Education",
+  entries: [
+    {
+      title: "Degree, Institution",
+      subtitle: "",
+      dateRange: "Year - Year",
+    },
+  ],
+};
+
+const cvExperience: CVSection = {
+  title: "Experience",
+  entries: [
+    {
+      title: "Position Title",
+      subtitle: "Organization",
+      description: "Description of role and responsibilities.",
+      dateRange: "Date Range",
+    },
+  ],
+};
+
+const cvPublications: CVSection = {
+  title: "Publications",
+  entries: [
+    {
+      title: "Publication details will be listed here.",
+      subtitle: "",
+    },
+  ],
+};
+
+const cvTeaching: CVSection = {
+  title: "Teaching",
+  entries: [
+    {
+      title: "Course Name",
+      subtitle: "Institution",
+      dateRange: "Term",
+    },
+  ],
+};
+
+const cvSkills: CVSkills = {
+  skills: ["Skill 1", "Skill 2", "Skill 3"],
+};
+
 /**
  * CV page component
  * Displays curriculum vitae with structured sections
  */
 export default function CV() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+    <PageContainer>
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold text-charcoal">Curriculum Vitae</h1>
-        <a
-          href="#"
-          className="rounded-md bg-accentBlue px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 transition-colors"
-        >
+        <Button as="link" href="#" variant="primary" className="px-4 py-2 text-sm">
           Download PDF
-        </a>
+        </Button>
       </div>
 
-      <div className="space-y-8 text-lg leading-relaxed text-charcoal">
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold text-charcoal">
-            Education
-          </h2>
+      <div className="space-y-8">
+        <Section title={cvEducation.title}>
           <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold">Degree, Institution</h3>
-              <p className="text-accentSlate">Year - Year</p>
-            </div>
+            {cvEducation.entries.map((entry, index) => (
+              <CVEntry
+                key={index}
+                title={entry.title}
+                subtitle={entry.subtitle}
+                dateRange={entry.dateRange}
+                description={entry.description}
+              />
+            ))}
           </div>
-        </section>
+        </Section>
 
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold text-charcoal">
-            Experience
-          </h2>
+        <Section title={cvExperience.title}>
           <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold">Position Title</h3>
-              <p className="text-accentSlate">Organization | Date Range</p>
-              <p>Description of role and responsibilities.</p>
-            </div>
+            {cvExperience.entries.map((entry, index) => (
+              <CVEntry
+                key={index}
+                title={entry.title}
+                subtitle={entry.subtitle}
+                dateRange={entry.dateRange}
+                description={entry.description}
+              />
+            ))}
           </div>
-        </section>
+        </Section>
 
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold text-charcoal">
-            Publications
-          </h2>
+        <Section title={cvPublications.title}>
           <div className="space-y-2">
-            <p>Publication details will be listed here.</p>
+            {cvPublications.entries.map((entry, index) => (
+              <p key={index}>{entry.title}</p>
+            ))}
           </div>
-        </section>
+        </Section>
 
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold text-charcoal">
-            Teaching
-          </h2>
+        <Section title={cvTeaching.title}>
           <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold">Course Name</h3>
-              <p className="text-accentSlate">Institution | Term</p>
-            </div>
+            {cvTeaching.entries.map((entry, index) => (
+              <CVEntry
+                key={index}
+                title={entry.title}
+                subtitle={entry.subtitle}
+                dateRange={entry.dateRange}
+              />
+            ))}
           </div>
-        </section>
+        </Section>
 
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold text-charcoal">
-            Technical Skills
-          </h2>
+        <Section title="Technical Skills">
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-charcoal">
-              Skill 1
-            </span>
-            <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-charcoal">
-              Skill 2
-            </span>
-            <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-charcoal">
-              Skill 3
-            </span>
+            {cvSkills.skills.map((skill) => (
+              <SkillTag key={skill} skill={skill} />
+            ))}
           </div>
-        </section>
+        </Section>
       </div>
-    </div>
+    </PageContainer>
   );
 }
