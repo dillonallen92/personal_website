@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Name */}
         <h1 className="mb-4 text-4xl font-bold text-charcoal sm:text-5xl">
-          Your Name
+          Hello, I'm Dillon Allen
         </h1>
 
         {/* Title */}
@@ -33,8 +33,7 @@ export default function Home() {
 
         {/* Professional Summary */}
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-charcoal">
-          One-sentence professional summary that bridges academic teaching and
-          applied technical work.
+          Engineering Professor, teaching at a local community college in Visalia, California. I have a passion for teaching and learning, and I have a passion for development and deep technical work.
         </p>
 
         {/* CTA Buttons */}
@@ -61,18 +60,10 @@ export default function Home() {
             {/* Featured Projects Placeholder */}
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <h4 className="mb-2 text-xl font-semibold text-charcoal">
-                Featured Project 1
+                Valley Fever Forecasting
               </h4>
               <p className="text-accentSlate">
-                Brief description of a highlighted project.
-              </p>
-            </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
-              <h4 className="mb-2 text-xl font-semibold text-charcoal">
-                Featured Project 2
-              </h4>
-              <p className="text-accentSlate">
-                Brief description of another highlighted project.
+                Using a two layer masked LSTM, I am predicting Valley Fever case rates in the Fresno County region based on a multitude of environmental varaibles.
               </p>
             </div>
           </div>
@@ -80,10 +71,10 @@ export default function Home() {
           {/* Featured Course */}
           <div className="rounded-lg border border-gray-200 bg-white p-6">
             <h4 className="mb-2 text-xl font-semibold text-charcoal">
-              Featured Course
+              MATLAB Programming
             </h4>
             <p className="text-accentSlate">
-              Brief description of a highlighted course or teaching item.
+              MATLAB Programming focuses on the intersection of computing skills and engineering concepts. In this course, I focus on core programming skills and numerical methods to help prepare students for industry and research.
             </p>
           </div>
         </div>
