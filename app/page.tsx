@@ -2,17 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 /**
+ * Get the base path for the application
+ * In production, this is '/personal_website', locally it's empty
+ */
+const getBasePath = () => {
+  return process.env.NODE_ENV === 'production' ? '/personal_website' : '';
+};
+
+/**
  * Landing page component
  * Displays professional headshot, name, title, summary, and CTAs
  */
 export default function Home() {
+  const basePath = getBasePath();
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center text-center">
         {/* Headshot */}
         <div className="mb-8">
           <Image
-            src="/images/headshot.jpg"
+            src={`${basePath}/images/headshot.jpg`}
             alt="Professional headshot"
             width={200}
             height={200}
