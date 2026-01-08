@@ -12,7 +12,7 @@ export default function Home() {
         {/* Headshot */}
         <div className="mb-8">
           <Image
-            src="/images/headshot.jpg"
+            src="public/images/headshot.jpg"
             alt="Professional headshot"
             width={200}
             height={200}
@@ -56,7 +56,7 @@ export default function Home() {
         {/* Featured Section */}
         <div className="w-full space-y-8">
           <h3 className="text-2xl font-semibold text-charcoal">Featured</h3>
-          
+
           <div className="grid gap-6 md:grid-cols-2">
             {/* Featured Projects Placeholder */}
             <div className="rounded-lg border border-gray-200 bg-white p-6">
