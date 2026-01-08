@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 /**
  * Projects index page component
  * Displays grid of project cards
@@ -29,12 +27,6 @@ export default function Projects() {
               Next.js
             </span>
           </div>
-          <Link
-            href="/projects/example"
-            className="text-accentBlue hover:underline"
-          >
-            View Details →
-          </Link>
         </div>
       </div>
     </div>

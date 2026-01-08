@@ -28,7 +28,7 @@ Build the static site:
 npm run build
 ```
 
-This will create an `out` directory with the static files ready for deployment.
+This will create a `docs` directory with the static files ready for deployment.
 
 ## Deployment to GitHub Pages
 
@@ -37,9 +37,20 @@ This will create an `out` directory with the static files ready for deployment.
    npm run build
    ```
 
-2. The `out` directory contains all static files.
+2. Commit and push the `docs` directory:
+   ```bash
+   git add docs
+   git commit -m "Update site"
+   git push
+   ```
 
-3. Configure GitHub Pages to serve from the `out` directory, or use GitHub Actions to automate the deployment.
+3. In your GitHub repository, go to Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: main
+   - Folder: /docs
+   - Click Save
+
+Your site will be available at `https://yourusername.github.io/personal_website/`
 
 ## Project Structure
 
@@ -54,8 +65,5 @@ This will create an `out` directory with the static files ready for deployment.
 - `/about` - About page
 - `/courses` - Courses page
 - `/projects` - Projects index
-- `/projects/[slug]` - Individual project pages
 - `/cv` - Curriculum Vitae
-- `/blog` - Blog index
-- `/blog/[slug]` - Individual blog posts
 - `/contact` - Contact information
