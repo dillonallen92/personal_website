@@ -12,6 +12,16 @@
 /.next/
 /out/
 # /docs/ - NOT ignored, needed for GitHub Pages deployment
+# But ignore cache files and development artifacts within docs
+/docs/cache/
+/docs/trace
+/docs/*.old
+# Hot Module Replacement (HMR) files - development only
+**/*.hot-update.js
+**/*.hot-update.json
+# The static/webpack folder contains mostly development artifacts
+# Production builds shouldn't need this - if site works without it, consider ignoring
+/docs/static/webpack/
 
 # production
 /build
