@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Name */}
         <h1 className="mb-4 text-4xl font-bold text-charcoal sm:text-5xl">
-          Hello, I'm Dillon Allen
+          Hello, I&apos;m Dillon Allen
         </h1>
 
         {/* Title */}
