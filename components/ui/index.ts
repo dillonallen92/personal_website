@@ -8,3 +8,4 @@ export { PageTitle } from "./PageTitle";
 export { Section } from "./Section";
 export { SkillTag } from "./SkillTag";
 export { EmptyState } from "./EmptyState";
+export { Footer } from "./Footer";

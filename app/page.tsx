@@ -1,5 +1,6 @@
 import { PageContainer } from "@/components/ui/PageContainer";
 import { Button } from "@/components/ui/Button";
+import { Footer } from "@/components/ui/Footer";
 import { ProfileHeader } from "@/components/domain/ProfileHeader";
 import { FeaturedCard } from "@/components/domain/FeaturedCard";
 import { profileData } from "@/data/profile";
@@ -55,6 +56,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer
+        linkedinUrl="https://www.linkedin.com/in/dillonballen/"
+        githubUrl="https://github.com/dillonallen92"
+        emailUrl="mailto:dillona@cos.edu"
+      />
     </PageContainer>
   );
 }
