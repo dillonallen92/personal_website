@@ -12,20 +12,20 @@ export type ContactInfo = {
 export const contactInfo: ContactInfo[] = [
   {
     label: "Email",
-    value: "your.email@example.com",
-    href: "mailto:your.email@example.com",
+    value: "dillona@cos.edu",
+    href: "mailto:dillona@cos.edu",
     external: false,
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/yourprofile",
-    href: "https://linkedin.com/in/yourprofile",
+    value: "linkedin.com/in/dillonballen/",
+    href: "https://linkedin.com/in/dillonballen/",
     external: true,
   },
   {
     label: "GitHub",
-    value: "github.com/yourusername",
-    href: "https://github.com/yourusername",
+    value: "github.com/dillonallen92",
+    href: "https://github.com/dillonallen92",
     external: true,
   },
 ];

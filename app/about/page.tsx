@@ -20,15 +20,11 @@ const aboutSections: AboutSection[] = [
   },
   {
     title: "Technical Interests",
-    content: "Your areas of technical focus and interests.",
+    content: "I am interested in all things related to software development, machine learning, and artificial intelligence. I am also interested in the intersection of software development and engineering, and how to use software development to solve engineering problems. I am also interested in robotics, computer vision, and autonomous systems.",
   },
   {
     title: "Teaching Interests",
-    content: "Your teaching philosophy and areas of focus.",
-  },
-  {
-    title: "Career Direction",
-    content: "Your professional goals and direction.",
+    content: "For my teaching style, I try to follow a project-focused approach. I believe that the best way to learn is by doing. I also believe that the best way to teach is by doing. I try to make my courses as hands-on as possible, and I try to use real-world examples whenever possible.",
   },
 ];
 

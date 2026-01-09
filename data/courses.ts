@@ -46,6 +46,14 @@ export const courses: Record<Semester, Course[]> = {
         "Engineering Graphics is a course that teaches students how to read and interpret engineering drawings. This course also focuses on the SolidWorks CAD Software and 3D printing.",
       syllabusUrl: "#",
     },
+    {
+      title: "Computer Organization and Architecture",
+      institution: "College of the Sequoias",
+      term: "Fall 2025",
+      summary:
+        "This course focuses on the principles of computer organization and architecture, including the design and implementation of Assembly programs. Students focus on boolean algebra, finite state machines, and programming basics for Assembly and C.",
+      syllabusUrl: "#",
+    },
   ],
   spring: [
     {
