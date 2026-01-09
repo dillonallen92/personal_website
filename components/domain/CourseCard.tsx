@@ -47,7 +47,7 @@ export function CourseCard({
     <div
       className={`rounded-lg border border-gray-200 bg-white p-6 transition-all ${
         isClickable
-          ? "cursor-pointer hover:border-accentBlue hover:shadow-md active:bg-gray-50"
+          ? "cursor-pointer hover:border-accentBlue hover:shadow-md active:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-accentBlue focus:ring-offset-2"
           : ""
       }`}
       onClick={handleClick}

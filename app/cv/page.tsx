@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { SkillTag } from "@/components/ui/SkillTag";
 import { CVEntry } from "@/components/domain/CVEntry";
+import { getBasePath } from "@/utils/paths";
 
 type CVSection = {
   title: string;
@@ -137,11 +138,21 @@ const cvSkills: CVSkills = {
  * Displays curriculum vitae with structured sections
  */
 export default function CV() {
+  const basePath = getBasePath();
+
   return (
     <PageContainer>
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold text-charcoal">Curriculum Vitae</h1>
-        <Button as="link" href="#" variant="primary" className="px-4 py-2 text-sm">
+        <Button
+          as="link"
+          href={`${basePath}/pdfs/Resume_DA_2026.pdf`}
+          variant="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 text-sm min-h-[44px]"
+          ariaLabel="Download resume PDF (opens in new tab)"
+        >
           Download PDF
         </Button>
       </div>

@@ -7,6 +7,8 @@ type ButtonBaseProps = {
   variant?: ButtonVariant;
   children: ReactNode;
   className?: string;
+  "aria-label"?: string;
+  ariaLabel?: string;
 };
 
 type ButtonAsButton = ButtonBaseProps & {
@@ -19,6 +21,8 @@ type ButtonAsButton = ButtonBaseProps & {
 type ButtonAsLink = ButtonBaseProps & {
   as: "link";
   href: string;
+  target?: string;
+  rel?: string;
   onClick?: never;
   type?: never;
 };
@@ -36,8 +40,13 @@ export function Button(props: ButtonProps) {
     variant = "primary",
     children,
     className = "",
+    "aria-label": ariaLabelFromProp,
+    ariaLabel,
     ...restProps
   } = props;
+  
+  // Support both "aria-label" and ariaLabel for flexibility
+  const ariaLabelValue = ariaLabel || ariaLabelFromProp;
 
   const baseStyles = "rounded-md px-6 py-3 text-base font-medium transition-colors";
   
@@ -50,8 +59,26 @@ export function Button(props: ButtonProps) {
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`.trim();
 
   if (restProps.as === "link" && "href" in restProps) {
+    // For external links (PDFs, external URLs), use regular anchor tag
+    // For internal links, use Next.js Link
+    const isExternal = restProps.href.startsWith("http") || restProps.href.startsWith("/pdfs") || restProps.target === "_blank";
+    
+    if (isExternal) {
+      return (
+        <a
+          href={restProps.href}
+          target={restProps.target}
+          rel={restProps.rel || (restProps.target === "_blank" ? "noopener noreferrer" : undefined)}
+          className={combinedClassName}
+          aria-label={ariaLabelValue}
+        >
+          {children}
+        </a>
+      );
+    }
+    
     return (
-      <Link href={restProps.href} className={combinedClassName}>
+      <Link href={restProps.href} className={combinedClassName} aria-label={ariaLabelValue}>
         {children}
       </Link>
     );
@@ -62,6 +89,7 @@ export function Button(props: ButtonProps) {
       className={combinedClassName}
       onClick={restProps.onClick}
       type={restProps.type || "button"}
+      aria-label={ariaLabelValue}
     >
       {children}
     </button>

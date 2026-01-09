@@ -708,6 +708,9 @@ video {
 .max-h-\[calc\(90dvh-80px\)\] {
   max-height: calc(90dvh - 80px);
 }
+.min-h-\[44px\] {
+  min-height: 44px;
+}
 .w-6 {
   width: 1.5rem;
 }

@@ -13,6 +13,7 @@ import { SemesterToggle } from "@/components/domain/SemesterToggle";
 import { Modal } from "@/components/ui/Modal";
 import { PdfViewer } from "@/components/ui/PdfViewer";
 import { courses, type Semester, type Course } from "@/data/courses";
+import { getBasePath } from "@/utils/paths";
 
 type SelectedSemester = Semester | null;
 
@@ -38,6 +39,7 @@ export default function Courses() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const basePath = getBasePath();
 
   /**
    * Handles semester toggle button clicks
@@ -124,7 +126,7 @@ export default function Courses() {
           onToggleFullscreen={handleToggleFullscreen}
         >
           <PdfViewer
-            url={selectedCourse.syllabusUrl}
+            url={`${basePath}${selectedCourse.syllabusUrl}`}
             title={selectedCourse.title}
           />
         </Modal>
