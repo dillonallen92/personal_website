@@ -9,3 +9,5 @@ export { Section } from "./Section";
 export { SkillTag } from "./SkillTag";
 export { EmptyState } from "./EmptyState";
 export { Footer } from "./Footer";
+export { Modal } from "./Modal";
+export { PdfViewer } from "./PdfViewer";

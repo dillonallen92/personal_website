@@ -10,7 +10,9 @@ import { PageTitle } from "@/components/ui/PageTitle";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { CourseCard } from "@/components/domain/CourseCard";
 import { SemesterToggle } from "@/components/domain/SemesterToggle";
-import { courses, type Semester } from "@/data/courses";
+import { Modal } from "@/components/ui/Modal";
+import { PdfViewer } from "@/components/ui/PdfViewer";
+import { courses, type Semester, type Course } from "@/data/courses";
 
 type SelectedSemester = Semester | null;
 
@@ -33,6 +35,9 @@ const toggleSemester = (
 export default function Courses() {
   const [selectedSemester, setSelectedSemester] =
     useState<SelectedSemester>("fall");
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   /**
    * Handles semester toggle button clicks
@@ -40,6 +45,32 @@ export default function Courses() {
    */
   const handleSemesterToggle = (semester: Semester) => {
     setSelectedSemester(toggleSemester(selectedSemester, semester));
+  };
+
+  /**
+   * Handles course card click to open syllabus modal
+   * @param course - The course whose syllabus to display
+   */
+  const handleSyllabusClick = (course: Course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+    setIsFullscreen(false);
+  };
+
+  /**
+   * Handles modal close
+   */
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCourse(null);
+    setIsFullscreen(false);
+  };
+
+  /**
+   * Handles fullscreen toggle
+   */
+  const handleToggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
   };
 
   const semesterCourses = selectedSemester
@@ -70,6 +101,7 @@ export default function Courses() {
                   term={course.term}
                   summary={course.summary}
                   syllabusUrl={course.syllabusUrl}
+                  onSyllabusClick={() => handleSyllabusClick(course)}
                 />
               ))}
             </div>
@@ -80,6 +112,23 @@ export default function Courses() {
           <EmptyState message="Please select a semester to view courses." />
         )}
       </div>
+
+      {/* Syllabus Modal */}
+      {selectedCourse && selectedCourse.syllabusUrl && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          title={`${selectedCourse.title} - Syllabus`}
+          allowFullscreen={true}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={handleToggleFullscreen}
+        >
+          <PdfViewer
+            url={selectedCourse.syllabusUrl}
+            title={selectedCourse.title}
+          />
+        </Modal>
+      )}
     </PageContainer>
   );
 }
